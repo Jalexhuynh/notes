@@ -1,0 +1,74 @@
+/* CSS NOTES */
+
+selector {				/* Same as the HTML tag. Ex: h1, p, div, etc. */
+	property: value;
+}
+
+.selector	/* Selects CLASSES with name 'selector' */
+#selector	/* Selects ID's with name 'selector' */
+
+.text-properties {
+	color:	blue;			/* Can be a common color name. */	
+			#FFFFFF;		/* Can be a Hexadecimal color. Can shorten to #FFF. */
+			rgb(255,0,0);	/* Can be a RGB value. */
+	letter-spacing: 1px;
+	text-align: left, right, center, justify;
+	text-decoration: none, underline, overline, line-through, blink;
+	text-transform: none, capitalize, lowercase, uppercase;
+	word-spacing: 1px;
+}
+
+.font-properties {
+	font-size: xx-large, x-large, large, medium, small, x-small, xx-small;
+	font-style: normal, italic, oblique;
+	font-variant: normal, small-caps;
+	font-weight: lighter, normal, 100, 200, ... 900, bold, bolder;
+}
+
+a:link {}		/* Default color of link before clicking. */
+a:visited{}		/* Color of link after user has clicked. */
+a:hover{}		/* Color of link when user mouses over it. */
+a:focus{}		/* Color of link when user "tabs" over it. */
+a:active{}		/* Color of link as it is pressed down. */
+#ID a:link{}	/* Format links that have a certain ID. */
+a.class:link{}	/* Format links that have a certain class. */
+
+.background-properties {
+	background: fixed, scroll;  
+	background-color: blue, #FFF, rgb(255,0,0);
+	background-image: url("URL"), -webkit-linear-gradient(#FFF, #000);
+	background-position: left/center/right top/center/bottom, x-% y-%, x-pos, y-pos;
+	background-repeat: no-repeat, repeat, repeat-x, repeat-y;
+	background-size: cover, contain;
+	background-attachment: scroll, fixed; 
+}
+
+.border-properties {
+	border-color: blue, #FFF, rgb(255,0,0), transparent;
+	border-style: dashed, dotted, double, groove, hidden, inset, outset, ridge, solid, none;
+	border-width: thin, medium, thick;
+	border-radius: 0px;
+	/* Can also set the styles for each side individually via border-left/right/top/bottom-property */
+}
+
+.position-properties {
+	float: left, right, none;
+	position: static, relative, absolute, fixed;
+	overflow: auto, hidden, visible, scroll;
+	display: block, inline, list-item, none;
+}
+
+.padding {
+	padding: 1px, 1px, 1px, 1px; 	/* Top, Right, Bottom, Left */
+	/* Can also set padding-top/right/bottom/left individually. */
+}
+
+p:first-line {}			/* Styles only the first line of the paragraph element. */
+p.class:first-line {}	/* Same as above, but only for the specified class. */
+p:first-letter {}		/* styles only the first letter of the paragraph element. */
+p.class:first-letter{}	/* Same as above, but only for the specified class. */
+
+.box-sizing {
+	box-sizing: content-box;	/* Default. Width = width of CONTENT, but not the entire element. */
+	box-sizing: border-box;		/* Width determines the width of the ENTIRE element. */
+}
