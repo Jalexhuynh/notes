@@ -1,0 +1,74 @@
+<!-- HTML NOTES -->
+
+<!-- KEY NOTES -->
+
+<html>  			</html>		<!-- Opens and closes an HTML document. -->
+<html lang = "en"> 	</html>		<!-- Declares the language of the web page. -->
+<head>  			</head>		<!-- Used to provide info about page to web browsers. -->
+<title> 			</title>	<!-- Will determine the title displayed in the browser tab. -->
+<body>  			</body>		<!-- Contains the content of the webpage. -->
+
+<!-- To reference a stylesheet or googlefont: -->
+<link rel=“stylesheet” type=“text/css” href=“INSERT-URL-OR-PATHWAY-HERE”>
+
+
+<!-- Common Tags -->
+<h1-h6>		</h1-h6>	<!-- Headings, h1 being largest, to h6 which is smallest. -->
+<p>			</p>		<!-- Paragraph tag. -->
+<div>		</div>		<!-- Div tag, for a block of content. -->
+<em>		</em>		<!-- Gives text emphasis, or italics. -->
+<strong>	</strong>	<!-- Gives text strength, or boldens. -->
+<ol>		</ol>		<!-- Creates an ordered list (numbered bullets). -->
+<ul>		</ul>		<!-- Creates an unordered list (non-numbered bullets). -->
+<li>		</li>		<!-- Creates list items for the two list types. -->
+<br />					<!-- Creates a line break. -->
+<img src="URL" alt="Caption" />	<!-- Creates an image that displays the caption when mouseover. -->
+<a href="URL"> URL Name </a> 	<!-- Creates a link to "URL" called "URL Name". -->
+
+<!-- Notable HTML Body Sections -->
+<header>	</header>	<!-- Contains intro content, such as a banner. -->
+<nav>		</nav>		<!-- Contains the navigation menu. -->
+<main>		</main>		<!-- Contains the main content of the page. -->
+<aside>		</aside>	<!-- Contains sidebars, or tangentially related content. -->
+<footer>	</footer>	<!-- Contains the footer, usually info about author or copyright. -->
+
+<!-- Div Manipulation -->
+<div id = "ID">			</div>	<!-- Each page can only have ONE ID assigned to ONE element. -->
+<div class = "Class"> 	</div>	<!-- Can use a class on numerous elements. -->
+
+<!-- Tables -->
+<table>		</table>	<!-- Creates a table. -->
+<tr>		</tr>		<!-- Creates a table row. -->
+<th>		</th>		<!-- scope ="col/row" Determines if this is the header col/row. -->
+<td>		</td>		<!-- Table data cell. AKA "columns" -->
+						<!-- Can add "col/rowspan='number' to span multiple col/row." -->
+<tbody>		</tbody>	<!-- Defines the body/data of the table. -->
+<thead>		</thead>	<!-- Should only encompass the headers of the table. -->
+
+<!-- Sample HTML Skeleton -->
+<!DOCTYPE HTML>
+<html lang = “en”>
+	<head> 
+		<link rel= “stylesheet” type = “text/css” href = “URL” >
+		<title>Tab Title Here</title>
+	</head>
+	<body>
+		<header>
+			<h1>Website Title</h1>
+			<nav>
+				<ul>
+					<li><a href = “URL”>URL Text</a></li>
+					<li><a href = “URL”>URL Text</a></li>
+					<li><a href = “URL”>URL Text</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class = “main”>
+			<h2>Sub header</h2>
+			<p>Text content</p>
+		</div>
+		<footer>
+			<p>Footer Text</p>
+		</footer>
+	</body>
+</html>
