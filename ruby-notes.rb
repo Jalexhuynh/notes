@@ -8,6 +8,8 @@ Multi Line Comment
 
 # Ruby automatically returns the last expression it evaluates, making some "return" statement unnecessary!
 
+# Ruby enables large numbers to use underscores. Such as 1_000_000.
+
 # ---------------------- Creating a variable
 var_name = "Value"							# Typically named in lower_case style.
 print "Prints the argument to the screen."
@@ -256,8 +258,12 @@ Method step 3. Then it yields again, and passes in the argument we specified "st
 
 =end
 
-# ---------------------- Classes
+# ---------------------- Classes & Modules
 class ClassName						# Typically named in UpperCamelCase.
+	attr_reader   :attribute1		# Makes class.attribtue1 readable.
+	attr_writer   :attribute2		# Makes class.attribute2 editable.
+	attr_accessor :attribute3		# Makes class.attribtue3 both readable/editable.
+
 	$global_variable = "Value"		# Creates a global variable, accessible anywhere.
 	@@class_variable = "Value"		# Assigns an attribute for all instances of this class.
 									# Can only be accessed by methods utilized by the class itself.
@@ -266,7 +272,38 @@ class ClassName						# Typically named in UpperCamelCase.
 		@@class_variable += 1
 	end
 
+	public								# Specifies the following attributes/methods are public.
+
 	def self.identify_class_variable
 		return @@class_variable
 	end
+
+	private								# Now specifies the following are private.
+
+	def method
+		# code code
+	end
 end
+
+class ClassName2 < ClassName 		# Has ClassName2 inherit the attributes and methods of ClassName. 
+end 								# Can overwrite parent methods by re-defining them.
+									# Place "super" in the new method definition to check the parent 1st.
+
+
+# Modules are similar to classes, but are generally used for non-changing classes.
+
+module ModuleName 							# Creates a Module. 
+	ATTRIBUTE_1 = "Value"					# Attributes usually written in ALL CAPS.
+	ATTRIBUTE_2 = "Value"
+
+	def ModuleName.method_name(parameter)
+		#code code
+	end
+end
+
+puts ModuleName::ATTRIBUTE_1		# Accesses the value for a module.
+
+require 'module'		# Acesses Modules that are already present in the interpreter.
+include ModuleName		# Enables an instance of a class to include a module's methods/attributes.
+extend ModuleName		# Enables a class ITSELF, not the instances, to use a module's methods.
+# When a module and a class mix together, it is called a MIXIN!
