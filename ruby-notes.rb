@@ -35,6 +35,7 @@ var_name.to_str			# Same as above.
 "String".to_sym			# Converts a string to a symbol.
 "String".intern			# Same as above.
 var_name.to_i			# Converts the variable type to an integer.
+var_name.to_a			# Converts the variable type to an array.
 Integer(var_name)
 
 var_name1 <=> var_name2	# Compares if var_name1 comes before (-1), the same (0) or after (1) the second.
@@ -133,7 +134,7 @@ array_name = string.split(" ")	# Will separate a string > array of words, sepera
 array_name[0]				# Accesses a value at that array index.
 array_name << "item"		# Pushes a new item into an array or string.
 array_name.collect { |item|	# Runs some code on each item, and returns values in a new array.
-	# code code
+	# code code 			# Can also use ".map" to do the same thing.
 }
 
 # ---------------------- Hashes
@@ -194,9 +195,31 @@ def method2(*arguments)		# *arguments indicates there may be more than one passe
 	# code code
 end
 
-# ---------------------- Blocks
+# ---------------------- Blocks & Procs/Lambdas
 # Blocks are pieces of code or methods that are between the do/end or { }.
+# Procs are basically saved pieces of block codes.
 
+proc_name = Proc.new {  			# Saves a block of code as a proc.
+	# code code
+}
+
+var_name.method_name(&proc_name)	# Passing in a proc as a block to a method.
+					(&:method_name)	# Passing a method as a symbol as a proc.
+proc_name.call 						# Calls a proc.
+
+lambda { |argument|			# Creates a lambda.
+	#code code
+}
+
+=begin
+
+Differences between a Lambda and a Proc:
+1. Lambdas check to see if the correct number of arguments have been passed in.
+   A proc however, will assign a "nil" value to any extraneous arguments.
+2. When a lambda returns, it will resume the rest of the method that called it.
+   A proc however, does not go back to the method. It ends the method early.
+
+=end
 
 # ---------------------- One-lined & Compacted Statements
 
@@ -208,4 +231,42 @@ case var_name1 			# Compact case statement.
 	when "option1" then expression
 	when "option2" then expression
 	else expression
+end
+
+
+# ---------------------- Yielding
+def yield_method(argument)
+	puts "Method step 1."
+	yield("step 2.")
+	puts "Method step 3."
+	yield(argument)
+end
+
+yield_method("step 4.") { |argument| 
+	puts "Method #{argument}"
+}
+
+=begin
+This will output:
+
+Method step 1. Because method step 1 was peformed.
+Method step 2. Then it yields to the block, and passes in "step 2."
+Method step 3. Then it continues to step 3.
+Method step 3. Then it yields again, and passes in the argument we specified "step 4."
+
+=end
+
+# ---------------------- Classes
+class ClassName						# Typically named in UpperCamelCase.
+	$global_variable = "Value"		# Creates a global variable, accessible anywhere.
+	@@class_variable = "Value"		# Assigns an attribute for all instances of this class.
+									# Can only be accessed by methods utilized by the class itself.
+	def initialize(attribute)		# Can pass in any desired attributes.
+		@attribute = attributes 	# Assigns passed in attributes as instance attributes.
+		@@class_variable += 1
+	end
+
+	def self.identify_class_variable
+		return @@class_variable
+	end
 end
